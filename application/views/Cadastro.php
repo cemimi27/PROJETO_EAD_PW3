@@ -48,11 +48,12 @@
     <script src="<?php echo base_url('assets/node_modules/popper.js/dist/umd/popper.js'); ?>"></script>
     <script src="<?php echo base_url('assets/node_modules/sweetalert2/dist/sweetalert2.all.js'); ?>"></script>
     <script src="<?php echo base_url('assets/JavaScript/validacoes.js'); ?>"></script>
-    <!--<script type="text/javascript">
+    <script src="<?php echo base_url('assets/node_modules/jquery/dist/jquery.mask.min.js'); ?>"></script>
+    <script type="text/javascript">
         $(document).ready(function() {
             $('#cpf').mask("000.000.000-00")
         })
-    </script>-->
+    </script>
 </body>
 
 </html>

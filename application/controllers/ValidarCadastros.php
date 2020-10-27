@@ -16,8 +16,12 @@ class ValidarCadastros extends CI_Controller
             'tipo' => "cliente",
             'cpf' => $this->input->post("cpf")
         ];
+        $this->load->model('CadastrosModel');
 
         $confSenha = $this->input->post("confsenha");
+
+        $this->session->email = $dados['email'];
+        $this->session->userName = $dados['userName'];
 
         if (empty($dados['nome'])) {
             echo "ErroNome";
@@ -29,8 +33,22 @@ class ValidarCadastros extends CI_Controller
             die();
         }
 
+        $linhaUser = $this->CadastrosModel->VerificarUserName($dados['userName']);
+
+        if($linhaUser != ""){
+            echo "ErroUsuarioExiste";
+            die();
+        }
+
         if (empty($dados['email'])) {
             echo "ErroEmail";
+            die();
+        }
+
+        $linhaEmail = $this->CadastrosModel->VerificarEmail($dados['email']);
+
+        if($linhaEmail != ""){
+            echo "ErroEmailExiste";
             die();
         }
 
@@ -38,6 +56,14 @@ class ValidarCadastros extends CI_Controller
             echo "ErroCpf";
             die();
         }
+
+        $linhaCpf = $this->CadastrosModel->VerificarCpf($dados['cpf']);
+
+        if($linhaCpf != ""){
+            echo "ErroCpfExiste";
+            die();
+        }
+
         if (strlen(($dados['cpf'])) != 14) {
             echo "ErroTamanhoCpf";
             die();
@@ -48,18 +74,22 @@ class ValidarCadastros extends CI_Controller
             die();
         }
 
-        if ($confSenha != $dados['senha']) {
+        if (empty($confSenha)) {
             echo "ErroConfSenha";
             die();
         }
 
-        $this->load->model('CadastrosModel');
+        if ($confSenha != $dados['senha']) {
+            echo "SenhaNaoConfere";
+            die();
+        }
+
         if ($this->CadastrosModel->CadastrarUsuario($dados)) {
             echo "Sucesso";
             die();
         }
         else{
-            echo "ErroBanco";
+            echo "ErroCadastro";
             die();
         }
     }

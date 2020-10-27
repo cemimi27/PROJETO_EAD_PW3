@@ -33,7 +33,19 @@
         <form  action="<?php echo base_url('index.php/ValidarLogin/validacaoLogin'); ?>" method="POST" class="mx-auto mt-3" id="login">
             <div class="form-group row mx-auto">
                 <label class="text-center my-auto col-3" for="usuario">Usuário ou Email</label>
-                <input type="email" class="form-control mx-auto my-auto col-8" id="usuario" name="usuario">
+                <input type="text" class="form-control mx-auto my-auto col-8" id="usuario" name="usuario" 
+                value="<?php
+                if(isset($this->session->email))
+                {
+                    echo $this->session->email;
+                }
+                if(isset($this->session->email))
+                {
+                    $this->session->session_destroy;
+                }
+                
+               
+                ?>">
             </div>
             <div class="form-group row mx-auto">
                 <label class="text-center my-auto col-3" for="senha">Senha</label>

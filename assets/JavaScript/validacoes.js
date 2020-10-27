@@ -12,12 +12,12 @@ $(function () {
             cache: false,
             contentType: false,
             success: function (data) {
-                if (data == "ErroUser") {
+                if (data == "ErroUsuario") {
 
                     Swal.fire({
                         icon: 'warning',
-                        title: 'Erro usuário',
-                        text: 'O campo usuário está vazio!',
+                        title: 'Erro ao preencher campos!',
+                        text: 'Campo usuário vazio!',
                         confirmButtonText: 'OK',
                         confirmButtonColor: '#ff0000'
                     });
@@ -26,38 +26,32 @@ $(function () {
 
                     Swal.fire({
                         icon: 'warning',
-                        title: 'Erro senha',
-                        text: 'O campo senha está vazio!',
+                        title: 'Erro ao preencher campos!',
+                        text: 'Campo senha vazio!',
                         confirmButtonText: 'OK',
                         confirmButtonColor: '#ff0000',
                     });
                 }
-                if (data == "Sucesso") {
+
+                if (data == "SucessoADM") {
 
                     Swal.fire({
                         icon: 'success',
                         title: 'Sucesso!',
                         text: 'Login efetuado com sucesso!',
                         confirmButtonText: 'OK',
-                        confirmButtonColor: '#ff0000',
-                    }).then((result) => {
-                        if (result.value) {
-                            window.location.replace("../view/telaAdm.php")
-                        }
+                        confirmButtonColor: '#ff0000'
                     });
                 }
-                if (data == "SucessoFuncionario") {
+                
+                if (data == "SucessoFunc") {
 
                     Swal.fire({
                         icon: 'success',
                         title: 'Sucesso!',
                         text: 'Login efetuado com sucesso!',
                         confirmButtonText: 'OK',
-                        confirmButtonColor: '#ff0000',
-                    }).then((result) => {
-                        if (result.value) {
-                            window.location.replace("../view/telaFuncionario.php")
-                        }
+                        confirmButtonColor: '#ff0000'
                     });
                 }
                 if (data == "SucessoCliente") {
@@ -67,14 +61,10 @@ $(function () {
                         title: 'Sucesso!',
                         text: 'Login efetuado com sucesso!',
                         confirmButtonText: 'OK',
-                        confirmButtonColor: '#ff0000',
-                    }).then((result) => {
-                        if (result.value) {
-                            window.location.replace("../view/telaFuncionario.php")
-                        }
+                        confirmButtonColor: '#ff0000'
                     });
                 }
-                if (data == "FalhaLogin") {
+                if (data == "ErroLogin") {
 
                     Swal.fire({
                         icon: 'warning',
@@ -110,51 +100,19 @@ $(function () {
 
                     Swal.fire({
                         icon: 'warning',
-                        title: 'Erro Nome!',
-                        text: 'O campo nome está vazio!',
+                        title: 'Erro ao preencher campos!',
+                        text: 'Campo nome vazio!',
                         confirmButtonText: 'OK',
                         confirmButtonColor: '#ff0000'
                     });
                 }
-                if (data == "ErroCpf") {
-
-                    Swal.fire({
-                        icon: 'warning',
-                        title: 'Erro CPF!',
-                        text: 'O campo CPF está vazio!',
-                        confirmButtonText: 'OK',
-                        confirmButtonColor: '#ff0000'
-                    });
-
-                }
-                if (data == "ErroTamanhoCpf") {
-
-                    Swal.fire({
-                        icon: 'warning',
-                        title: 'Erro CPF!',
-                        text: 'O campo de CPF deve conter 14 digitos!',
-                        confirmButtonText: 'OK',
-                        confirmButtonColor: '#ff0000'
-                    });
-
-                }
-                if (data == "ErroCpfExiste") {
-
-                    Swal.fire({
-                        icon: 'warning',
-                        title: 'Erro CPF!',
-                        text: 'CPF já cadastrado!',
-                        confirmButtonText: 'OK',
-                        confirmButtonColor: '#ff0000'
-                    });
-
-                }
+                
                 if (data == "ErroUsuario") {
 
                     Swal.fire({
                         icon: 'warning',
-                        title: 'Erro Usuário!',
-                        text: 'O campo usuário está vazio!',
+                        title: 'Erro ao preencher campos!',
+                        text: 'Campo usuário vazio!',
                         confirmButtonText: 'OK',
                         confirmButtonColor: '#ff0000'
                     });
@@ -164,7 +122,7 @@ $(function () {
 
                     Swal.fire({
                         icon: 'warning',
-                        title: 'Erro Usuário!',
+                        title: 'Erro ao preencher campos!',
                         text: 'Usuário já cadastrado!',
                         confirmButtonText: 'OK',
                         confirmButtonColor: '#ff0000'
@@ -175,41 +133,91 @@ $(function () {
 
                     Swal.fire({
                         icon: 'warning',
-                        title: 'Erro Email!',
-                        text: 'O campo email está vazio!',
+                        title: 'Erro ao preencher campos!',
+                        text: 'Campo email vazio!',
                         confirmButtonText: 'OK',
                         confirmButtonColor: '#ff0000'
                     });
 
                 }
+
                 if (data == "ErroEmailExiste") {
 
                     Swal.fire({
                         icon: 'warning',
-                        title: 'Erro Email!',
+                        title: 'Erro ao preencher campos!',
                         text: 'Email já cadastrado!',
                         confirmButtonText: 'OK',
                         confirmButtonColor: '#ff0000'
                     });
 
                 }
-                if (data == "ErroSenha") {
+
+                if (data == "ErroCpf") {
 
                     Swal.fire({
                         icon: 'warning',
-                        title: 'Erro Senha!',
-                        text: 'O campo senha está vazio!',
+                        title: 'Erro ao preencher campos!',
+                        text: 'Campo CPF vazio!',
                         confirmButtonText: 'OK',
                         confirmButtonColor: '#ff0000'
                     });
 
                 }
+                if (data == "ErroTamanhoCpf") {
+
+                    Swal.fire({
+                        icon: 'warning',
+                        title: 'Erro ao preencher campos!',
+                        text: 'O campo CPF deve conter 11 digitos!',
+                        confirmButtonText: 'OK',
+                        confirmButtonColor: '#ff0000'
+                    });
+
+                }
+
+                if (data == "ErroCpfExiste") {
+
+                    Swal.fire({
+                        icon: 'warning',
+                        title: 'Erro ao preencher campos!',
+                        text: 'CPF já cadastrado!',
+                        confirmButtonText: 'OK',
+                        confirmButtonColor: '#ff0000'
+                    });
+
+                }
+                
+                if (data == "ErroSenha") {
+
+                    Swal.fire({
+                        icon: 'warning',
+                        title: 'Erro ao preencher campos!',
+                        text: 'Campo senha vazio!',
+                        confirmButtonText: 'OK',
+                        confirmButtonColor: '#ff0000'
+                    });
+
+                }
+
                 if (data == "ErroConfSenha") {
 
                     Swal.fire({
                         icon: 'warning',
-                        title: 'Erro Senha!',
-                        text: 'As senhas são diferentes!',
+                        title: 'Erro ao preencher campos!',
+                        text: 'Campo confirmar senha vazio!',
+                        confirmButtonText: 'OK',
+                        confirmButtonColor: '#ff0000'
+                    });
+
+                }
+
+                if (data == "SenhaNaoConfere") {
+
+                    Swal.fire({
+                        icon: 'warning',
+                        title: 'Erro ao preencher campos!',
+                        text: 'As senhas não conferem!',
                         confirmButtonText: 'OK',
                         confirmButtonColor: '#ff0000'
                     });
@@ -230,11 +238,11 @@ $(function () {
                     } );
                 }
 
-                if (data == "ErroBanco") {
+                if (data == "ErroCadastro") {
 
                     Swal.fire({
                         icon: 'error',
-                        title: 'Erro ao cadastar!',
+                        title: 'Erro!',
                         text: 'Não foi possível cadastrar!',
                         confirmButtonText: 'OK',
                         confirmButtonColor: '#ff0000'
